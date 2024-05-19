@@ -1,74 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+This repository contains a NestJS application for interacting with the LINE Messaging API.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Prerequisites
+Node.js and npm (or yarn) installed on your system.
+A LINE developer account and access to the LINE Messaging API documentation: https://developers.line.biz/
+Installation
+Clone this repository:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Bash
+git clone https://your-github-repo-url.git
+Use code with caution.
+content_copy
+Install dependencies:
 
-## Description
+Bash
+cd your-project-directory
+npm install
+Use code with caution.
+content_copy
+Configuration
+Create a .env file in the project root directory.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Add the following environment variables to the .env file, replacing the placeholders with your actual values:
 
-## Installation
+LINE_CHANNEL_ACCESS_TOKEN=your_channel_access_token
+LINE_CHANNEL_SECRET=your_channel_secret
+You can find your LINE_CHANNEL_ACCESS_TOKEN and LINE_CHANNEL_SECRET in the LINE Developers Console after creating a new LINE Messaging API channel.
+Local Development with ngrok
+Start the NestJS application:
 
-```bash
-$ pnpm install
-```
+Bash
+npm run start:dev
+Use code with caution.
+content_copy
+This will typically start the application on port 3000 by default.
 
-## Running the app
+Using ngrok:
 
-```bash
-# development
-$ pnpm run start
+Install ngrok if you haven't already: https://ngrok.com/
 
-# watch mode
-$ pnpm run start:dev
+In a separate terminal window, run ngrok to create a public URL for your locally running application:
 
-# production mode
-$ pnpm run start:prod
-```
+Bash
+ngrok http 3000
+Use code with caution.
+content_copy
+This will output a URL like https://<random-subdomain>.ngrok.io.
 
-## Test
+Configure the LINE Messaging API settings in the LINE Developers Console to use the public URL provided by ngrok for your webhook endpoint.
 
-```bash
-# unit tests
-$ pnpm run test
+Note: The ngrok tunnel will be closed when you terminate the ngrok process.
 
-# e2e tests
-$ pnpm run test:e2e
+Testing
+Use the LINE Messaging API documentation or tools like LINE Notify to send messages to your LINE channel and test the functionality of your NestJS application.
+Deployment
+This project can be deployed to any platform that supports Node.js applications. You will need to update the configuration details (environment variables) to match your deployment environment. Remember to configure your webhook endpoint URL in the LINE Developers Console to point to your deployed application.
 
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-# ami-bot
+Contribution
+Feel free to contribute to this project by creating pull requests. Make sure to follow the coding style and conventions used in the project.
